@@ -1,0 +1,31 @@
+{
+  "name": "order-service",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "laoufi mohamed lmaine",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "tsx watch src/index.ts",
+    "dev:esm": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev:tsnode-esm": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node-esm src/index.ts\"",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/cors": "^2.8.19",
+    "@types/node": "^24.9.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@clerk/fastify": "^2.4.42",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "fastify": "^5.6.1"
+  }
+}

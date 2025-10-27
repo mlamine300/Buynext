@@ -1,0 +1,25 @@
+{
+  "name": "payment-service",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev:esm": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev:tsnode-esm": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node-esm src/index.ts\"",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hono/clerk-auth": "^3.0.3",
+    "@hono/node-server": "^1.19.5",
+    "dotenv": "^16.0.3",
+    "hono": "^4.10.3"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/node": "^20.11.17",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
