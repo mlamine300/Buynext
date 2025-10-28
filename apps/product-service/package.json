@@ -8,7 +8,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "nodemon --watch --env-file=.env \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev": "tsx watch src/index.ts",
     "dev:esm": "nodemon --watch --env-file=.env \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"node --loader ts-node/esm src/index.ts\"",
     "dev:tsnode-esm": "nodemon --watch --env-file=.env \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node-esm src/index.ts\"",
     "check-types": "tsc --noEmit"
@@ -22,8 +22,10 @@
   },
   "dependencies": {
     "@clerk/express": "^1.7.42",
+    "@repo/db": "*",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "zod": "^4.1.12"
   }
 }
