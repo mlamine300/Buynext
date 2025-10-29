@@ -1,11 +1,8 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
-generator zod {
-  provider = "prisma-generator-zod"
-  output   = "../node_modules/@prisma/client/zod"
-} 
 
 
 

@@ -14,14 +14,19 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@repo/db": "*",
     "@repo/typescript-config": "*",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.4",
     "nodemon": "^3.1.10",
+    "prisma": "^6.18.0",
+    "prisma-generator-zod": "^1.0.0",
+    "@prisma/client": "^6.18.0",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
     "@clerk/express": "^1.7.42",
+    "@prisma/client": "^6.18.0",
     "@repo/db": "*",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
