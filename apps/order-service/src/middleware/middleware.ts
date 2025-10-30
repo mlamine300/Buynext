@@ -16,9 +16,16 @@ export const checkAuth = async (
   const { isAuthenticated, userId } = getAuth(request);
 
   // If user isn't authenticated, return a 401 error
+  console.log(userId);
   if (!isAuthenticated) {
     return reply.code(401).send({ error: "User not authenticated Fastify" });
   }
 
   request.userId = userId;
+};
+export const checkAdmin = async (
+  request: FastifyRequest,
+  reply: FastifyReply
+) => {
+  console.log("checking admin right");
 };

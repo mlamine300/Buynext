@@ -1,0 +1,22 @@
+{
+  "name": "@repo/order_db",
+  "version": "0.0.01",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/index.ts",
+    "start": "node --watch --env-file=.env src/index.ts"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/node": "^24.9.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.2"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "allowImportingTsExtensions": true
+}

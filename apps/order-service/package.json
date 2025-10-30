@@ -26,6 +26,7 @@
     "@clerk/fastify": "^2.4.42",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "fastify": "^5.6.1"
+    "fastify": "^5.6.1",
+    "@repo/order_db": "*"
   }
 }
