@@ -1,10 +1,10 @@
 import { create } from "zustand";
-import { SelectedProduct } from "../../../types";
+import { CartItemType } from "@repo/types";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { products } from "@/components/home/ProductList";
 export type CartStoreSchema = {
   step: number;
-  products: SelectedProduct[] | [];
+  products: CartItemType[] | [];
   totalProducts?: number;
   discount?: number;
   shippingFee?: number;
@@ -17,7 +17,7 @@ export type CartStoreSchema = {
   nameOnCard: string;
   cardNumber: string;
   experationDate: string;
-  addProduct: (product: SelectedProduct) => void;
+  addProduct: (product: CartItemType) => void;
   removeProduct: (id: string) => void;
   updateProductQuantity: (id: string, quantity: number) => void;
   addShippmentDetail: (
@@ -57,7 +57,7 @@ export const useCartStore = create<
       nameOnCard: "",
       cardNumber: "",
       experationDate: "",
-      addProduct: (product: SelectedProduct) =>
+      addProduct: (product: CartItemType) =>
         set((state) => {
           const existingProduct = state.products
             .filter((p) => p.orderId === product.orderId)
@@ -122,7 +122,7 @@ export const useCartStore = create<
 
       updateProductQuantity: (id: string, quantity: number) =>
         set((state) => {
-          const updatedProducts: SelectedProduct[] = state.products;
+          const updatedProducts: CartItemType[] = state.products;
           const index = updatedProducts.findIndex((p) => p.orderId === id);
           const product = updatedProducts[index];
           if (!product) return { products: updatedProducts };

@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@repo/db": "*",
+    "@repo/types": "*",
     "@repo/typescript-config": "*",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.4",

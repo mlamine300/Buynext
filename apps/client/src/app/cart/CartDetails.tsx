@@ -8,7 +8,7 @@ const CartDetails = () => {
   const products = useCartStore((state) => state.products);
   const step = useCartStore((state) => state.step);
   const total = products.reduce((prev, curr) => {
-    return prev + curr.price.current;
+    return prev + curr.price;
   }, 0);
   const next = useCartStore((state) => state.next);
   const discountPercentage = useCartStore((state) => state.discount) || 0;

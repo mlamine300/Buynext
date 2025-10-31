@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Product } from "../../../../../types";
+import { ProductType } from "@repo/types";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 
-const ColorChooser = ({ product }: { product: Product }) => {
+const ColorChooser = ({ product }: { product: ProductType }) => {
   const { replace } = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();

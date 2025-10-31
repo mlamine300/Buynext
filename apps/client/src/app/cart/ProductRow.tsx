@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { SelectedProduct } from "../../../../types";
+import type { CartItemType } from "@repo/types";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { PriceTag } from "@/components/ui/PriceTag";
 import { useCartStore } from "@/stores/cartStore";
@@ -10,7 +10,7 @@ import { useState } from "react";
 const ProductRow = ({
   product,
 }: {
-  product: SelectedProduct;
+  product: CartItemType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }) => {
   const setProductQuantity = useCartStore(
@@ -22,10 +22,11 @@ const ProductRow = ({
     removeProductById(product.orderId || "");
     toast.success(`${product.name} has been deleted from cart`);
   };
+  const images = product.images as any;
   return (
     <div className="w-full lg:w-[600px] h-40 flex items-center gap-8">
       <Image
-        src={product.images[product.chosenColor] || ""}
+        src={images[product.selectedColor] || ""}
         alt={product.name}
         width={200}
         height={200}
@@ -68,9 +69,9 @@ const ProductRow = ({
             +
           </button>
         </div>
-        <p className="text-text-muted text-sm">{`Size: ${product.chosenSize}`}</p>
-        <p className="text-text-muted text-sm">{`Color: ${product.chosenColor}`}</p>
-        <PriceTag price={product.price.current} className="mt-auto mb-0" />
+        <p className="text-text-muted text-sm">{`Size: ${product.selectedSize}`}</p>
+        <p className="text-text-muted text-sm">{`Color: ${product.selectedColor}`}</p>
+        <PriceTag price={product.price} className="mt-auto mb-0" />
       </div>
       <div className="h-full  flex justify-center items-center">
         <HiOutlineTrash

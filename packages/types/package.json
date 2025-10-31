@@ -1,0 +1,17 @@
+{
+  "name": "@repo/types",
+  "version": "0.0.1",
+  "main": "src/index/ts",
+  "type": "module",
+  "dependencies": {
+    "@repo/db": "*"
+  },
+  "devDependencies": {
+    "@repo/db": "*",
+    "@repo/typescript-config": "*",
+    "@types/node": "^24.9.1"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

@@ -10,14 +10,14 @@ import DropdownMenu, {
 import { Button } from "../ui/button";
 import { ArrowUpDown, MoreHorizontal, MoreVertical } from "lucide-react";
 import Link from "next/link";
-import { Product } from "../../../../types";
+import { ProductType } from "@repo/types";
 import Image from "next/image";
 import { Checkbox } from "../ui/checkbox";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
-export const columns: ColumnDef<Product>[] = [
+export const columns: ColumnDef<ProductType>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -48,7 +48,7 @@ export const columns: ColumnDef<Product>[] = [
 
       return (
         <Image
-          src={product.images[product.colors.at(0) as string] || ""}
+          src={(product.images as any)[product.colors.at(0) as string] || ""}
           alt={product.name}
           width={100}
           height={100}
@@ -98,7 +98,7 @@ export const columns: ColumnDef<Product>[] = [
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
-      }).format(product.price.current);
+      }).format(product.price);
 
       return <div className="text-right font-medium relative">{formatted}</div>;
     },

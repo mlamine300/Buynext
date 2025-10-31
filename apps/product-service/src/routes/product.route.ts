@@ -6,13 +6,14 @@ import {
   getProducts,
   getProductById,
 } from "../controllers/product.controller.js";
+import { checkAdmin } from "../middleware/middleware.js";
 
 const router = Router();
 
 // CRUD routes for products
-router.post("/", createProduct);
-router.put("/:id", updateProduct);
-router.delete("/:id", deleteProduct);
+router.post("/", checkAdmin, createProduct);
+router.put("/:id", checkAdmin, updateProduct);
+router.delete("/:id", checkAdmin, deleteProduct);
 router.get("/", getProducts);
 router.get("/:id", getProductById);
 

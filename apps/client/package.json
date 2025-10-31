@@ -30,6 +30,7 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@repo/types": "*",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@tailwindcss/postcss": "^4",

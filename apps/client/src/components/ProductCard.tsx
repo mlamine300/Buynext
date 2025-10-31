@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { Product, SelectedProduct } from "../../../types";
+import { ProductType, CartItemType } from "@repo/types";
 
 import { SelectList } from "./ui/SelectList";
 import ColorOptions from "./ColorOptions";
@@ -12,16 +12,17 @@ import Link from "next/link";
 import { useCartStore } from "@/stores/cartStore";
 import toast from "react-hot-toast";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   const [color, setColor] = useState<string>(product.colors.at(0) || "");
   const [size, setSize] = useState(product.sizes.at(0) || "m");
-  const image = product.images[color] || product.images[0];
+  const images = product.images as any;
+  const image = images[color] || images[0];
   const addProductToCart = useCartStore((state) => state.addProduct);
   const handleAddToCart = () => {
     addProductToCart({
       ...product,
-      chosenColor: color,
-      chosenSize: size,
+      selectedColor: color,
+      selectedSize: size,
       orderId: product.id + "/" + size + "/" + color,
       quantity: 1,
     });
@@ -68,10 +69,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <PriceTag
-            price={product.price.current}
-            originalPrice={product.price.original}
-          />
+          <PriceTag price={product.price} originalPrice={product.price} />
           <Button
             onClick={() => handleAddToCart()}
             size={"sm"}

@@ -3,7 +3,7 @@ import CardList from "@/components/home/CardList";
 import TodoList from "@/components/home/TodoList";
 import TotalRevenueChart from "@/components/home/TotalRevenueChart";
 import TotalVisitors from "@/components/home/TotalVisitors";
-import { SelectedProduct, type Product } from "../../../types";
+import type { CartItemType, ProductType } from "@repo/types";
 import {
   Card,
   CardContent,
@@ -56,14 +56,17 @@ import { Star } from "lucide-react";
 //     count: 1200,
 //   },
 // ];
-export const POPULAR_PRODUCTS: SelectedProduct[] = [
+export const POPULAR_PRODUCTS: (CartItemType & {
+  rating: number;
+  inStock: boolean;
+})[] = [
   {
     id: 1,
     name: "Adidas CoreFit T-Shirt",
     shortDescription: "Breathable cotton tee perfect for gym or casual wear.",
     description:
       "This Adidas CoreFit T-Shirt combines comfort, stretch, and breathability. Ideal for workouts or relaxed days out.",
-    price: { original: 49.9, current: 39.9 },
+    price: 39.9,
     sizes: ["s", "m", "l", "xl", "xxl"],
     colors: ["gray", "green", "purple"],
     images: {
@@ -71,12 +74,14 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
       green: "/products/1gr.png",
       purple: "/products/1p.png",
     },
-    category: "t-shirts",
+    categorySlug: "t-shirts",
     rating: 4.6,
     inStock: true,
-    datePublished: "2025-09-18",
-    chosenColor: "green",
-    chosenSize: "m",
+    createdAt: new Date("2025-09-18"),
+    updatedAt: new Date("2025-09-19"),
+    quantity: 1,
+    selectedColor: "green",
+    selectedSize: "m",
   },
   {
     id: 5,
@@ -84,7 +89,7 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
     shortDescription: "High-performance jacket designed for motion.",
     description:
       "Under Armour’s Velocity Jacket keeps you protected from wind and rain while maintaining maximum flexibility.",
-    price: { original: 99.9, current: 89.9 },
+    price: 89.9,
     sizes: ["m", "l", "xl", "xxl"],
     colors: ["blue", "orange", "red"],
     images: {
@@ -92,12 +97,14 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
       orange: "/products/5o.png",
       red: "/products/5r.png",
     },
-    category: "jackets",
+    categorySlug: "jackets",
     rating: 4.9,
     inStock: true,
-    datePublished: "2025-10-01",
-    chosenColor: "red",
-    chosenSize: "l",
+    createdAt: new Date("2025-09-18"),
+    updatedAt: new Date("2025-09-19"),
+    quantity: 1,
+    selectedColor: "red",
+    selectedSize: "l",
   },
   {
     id: 8,
@@ -105,19 +112,21 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
     shortDescription: "Thermal hoodie built for cold-weather workouts.",
     description:
       "New Balance Thermal Hoodie locks in warmth while allowing freedom of movement — your perfect training companion.",
-    price: { original: 89.9, current: 79.9 },
+    price: 79.9,
     sizes: ["s", "m", "l", "xl"],
     colors: ["black", "gray"],
     images: {
       black: "/products/8b.png",
       gray: "/products/8gr.png",
     },
-    category: "jackets",
+    categorySlug: "jackets",
     rating: 4.8,
     inStock: false,
-    datePublished: "2025-10-10",
-    chosenColor: "gray",
-    chosenSize: "xl",
+    createdAt: new Date("2025-09-18"),
+    updatedAt: new Date("2025-09-19"),
+    quantity: 1,
+    selectedColor: "gray",
+    selectedSize: "xl",
   },
   {
     id: 6,
@@ -125,19 +134,21 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
     shortDescription: "Moisture-wicking tee for outdoor performance.",
     description:
       "Columbia Active Tee offers quick-dry tech with lightweight comfort — great for hiking, training, or casual use.",
-    price: { original: 49.9, current: 44.9 },
+    price: 44.9,
     sizes: ["s", "m", "l"],
     colors: ["green", "white"],
     images: {
       green: "/products/6g.png",
       white: "/products/6w.png",
     },
-    category: "shoes",
+    categorySlug: "shoes",
     rating: 4.3,
     inStock: true,
-    datePublished: "2025-10-03",
-    chosenColor: "white",
-    chosenSize: "l",
+    createdAt: new Date("2025-09-18"),
+    updatedAt: new Date("2025-09-19"),
+    quantity: 1,
+    selectedColor: "white",
+    selectedSize: "l",
   },
   {
     id: 7,
@@ -145,19 +156,21 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
     shortDescription: "Durable fleece jacket for all-weather comfort.",
     description:
       "The North Face Trail Fleece combines insulation and breathability, ideal for hikes or cool-weather casual wear.",
-    price: { original: 84.9, current: 74.9 },
+    price: 74.9,
     sizes: ["m", "l", "xl"],
     colors: ["green", "purple"],
     images: {
       green: "/products/7g.png",
       purple: "/products/7p.png",
     },
-    category: "shoes",
+    categorySlug: "shoes",
     rating: 4.5,
     inStock: true,
-    datePublished: "2025-10-06",
-    chosenColor: "purple",
-    chosenSize: "l",
+    createdAt: new Date("2025-09-12"),
+    updatedAt: new Date("2025-09-10"),
+    quantity: 1,
+    selectedColor: "purple",
+    selectedSize: "l",
   },
   {
     id: 8,
@@ -165,19 +178,21 @@ export const POPULAR_PRODUCTS: SelectedProduct[] = [
     shortDescription: "Thermal hoodie built for cold-weather workouts.",
     description:
       "New Balance Thermal Hoodie locks in warmth while allowing freedom of movement — your perfect training companion.",
-    price: { original: 89.9, current: 79.9 },
+    price: 79.9,
     sizes: ["s", "m", "l", "xl"],
     colors: ["black", "gray"],
     images: {
       black: "/products/8b.png",
       gray: "/products/8gr.png",
     },
-    category: "jackets",
+    categorySlug: "jackets",
     rating: 4.8,
     inStock: false,
-    datePublished: "2025-10-10",
-    chosenColor: "black",
-    chosenSize: "l",
+    createdAt: new Date("2025-09-12"),
+    updatedAt: new Date("2025-09-10"),
+    quantity: 1,
+    selectedColor: "black",
+    selectedSize: "l",
   },
 ];
 export const latestTransactions = [
@@ -254,11 +269,16 @@ export default function Home() {
         <CardList
           title="Popular Products"
           list={POPULAR_PRODUCTS}
-          render={(item: SelectedProduct) => (
+          render={(
+            item: CartItemType & {
+              rating: number;
+              inStock: boolean;
+            }
+          ) => (
             <Card key={item.id} className=" p-2 ">
               <CardContent className=" rounded-lg flex gap-4 items-center py-1 px-2">
                 <Image
-                  src={item.images[item.chosenColor] || ""}
+                  src={(item.images as any)[item.selectedColor] || ""}
                   alt={item.shortDescription}
                   width={500}
                   height={500}

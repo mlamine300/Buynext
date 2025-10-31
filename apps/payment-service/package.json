@@ -12,9 +12,11 @@
     "@hono/clerk-auth": "^3.0.3",
     "@hono/node-server": "^1.19.5",
     "dotenv": "^16.0.3",
-    "hono": "^4.10.3"
+    "hono": "^4.10.3",
+    "stripe": "^19.2.0"
   },
   "devDependencies": {
+    "@repo/types": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^20.11.17",
     "nodemon": "^3.1.10",

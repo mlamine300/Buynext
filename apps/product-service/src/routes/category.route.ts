@@ -6,13 +6,14 @@ import {
   getCategorys,
   getCategoryById,
 } from "../controllers/category.controller.js";
+import { checkAdmin } from "../middleware/middleware.js";
 
 const router = Router();
 
 // CRUD routes for categorys
-router.post("/", createCategory);
-router.put("/:id", updateCategory);
-router.delete("/:id", deleteCategory);
+router.post("/", checkAdmin, createCategory);
+router.put("/:id", checkAdmin, updateCategory);
+router.delete("/:id", checkAdmin, deleteCategory);
 router.get("/", getCategorys);
 router.get("/:id", getCategoryById);
 

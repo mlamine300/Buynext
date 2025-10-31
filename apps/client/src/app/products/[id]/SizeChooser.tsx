@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Product } from "../../../../../types";
+import type { ProductType } from "@repo/types";
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const SizeChooser = ({ product }: { product: Product }) => {
+const SizeChooser = ({ product }: { product: ProductType }) => {
   const searchParams = useSearchParams();
 
   const [selectedSize, setSelectedSize] = useState<string>(
