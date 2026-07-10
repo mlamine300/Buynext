@@ -4,6 +4,25 @@ A scalable full-stack e-commerce platform built with a **microservices architect
 
 ## ✨ Features
 
+<p align="center">
+  <a href="https://github.com/mlamine300/Buynext">
+    <img src="https://ik.imagekit.io/lamine300/buunext%20banner" alt="BuyNext Banner" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/MERN-Stack-3FA037?style=for-the-badge&logo=javascript&logoColor=white" />
+  <img src="https://img.shields.io/badge/microservices-0304AE?style=for-the-badge&logo=distrobox&logoColor=white" />
+  <img src="https://img.shields.io/badge/turbopack-black?style=for-the-badge&logo=turbo&logoColor=white" />
+  <img src="https://img.shields.io/badge/React.js-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Next.js-000013?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img src="https://img.shields.io/badge/-Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white" />
+
+</p>
+
 ### Customer Store
 - Browse products by category
 - Search and filter products
