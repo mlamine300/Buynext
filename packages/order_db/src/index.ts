@@ -1,12 +1,12 @@
-import { connectToMongo } from "./connection.js";
-import { OrderModel } from "./order-model.js";
+import { connectToMongo } from "./connection.ts";
+import { OrderModel } from "./order-model.ts";
 
 export {
   OrderModel,
   type OrderSchemaType,
   OrderStatus,
-} from "./order-model.js";
-export { connectToMongo } from "./connection.js";
+} from "./order-model.ts";
+export { connectToMongo } from "./connection.ts";
 await connectToMongo();
 // await OrderModel.create({
 //   userId: "user_34cbLN5pEGNPuBIfKP1L9qfFELT",

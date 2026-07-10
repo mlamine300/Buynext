@@ -2,29 +2,18 @@ import "dotenv/config";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
-import { checkAuth } from "./middleware/middleware.js";
-import stripe from "../utils/stripe.js";
+import sessionRouter from "./routes/session.route.js";
+import { cors } from "hono/cors";
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.text("Payment endpoint works!");
-});
-
 app.use("*", clerkMiddleware());
-
-app.get("/test", async (c) => {
-  console.log("starting...");
-  const x = await stripe.products.create({
-    name: "hola",
-    id: "123",
-    default_price_data: {
-      currency: "dzd",
-      unit_amount: 2600 * 100,
-    },
-  });
-  console.log(x);
-  return c.json({ message: "product created" });
-});
+app.use(
+  "*",
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3002"],
+  })
+);
+app.route("/sessions", sessionRouter);
 const start = async () => {
   try {
     serve(

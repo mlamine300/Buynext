@@ -7,76 +7,17 @@ import { z } from "zod";
 import PaymentInfo from "./PaymentInfo";
 import { useCartStore } from "@/stores/cartStore";
 import toast from "react-hot-toast";
-// const boughtProducts: SelectedProduct[] = [
-//   {
-//     id: 1,
-//     name: "Adidas CoreFit T-Shirt",
-//     shortDescription: "Breathable cotton tee perfect for gym or casual wear.",
-//     description:
-//       "This Adidas CoreFit T-Shirt combines comfort, stretch, and breathability. Ideal for workouts or relaxed days out.",
-//     price: { original: 49.9, current: 39.9 },
-//     sizes: ["s", "m", "l", "xl", "xxl"],
-//     colors: ["gray", "green", "purple"],
-//     images: {
-//       gray: "/products/1g.png",
-//       green: "/products/1gr.png",
-//       purple: "/products/1p.png",
-//     },
-//     category: "t-shirts",
-//     rating: 4.6,
-//     inStock: true,
-//     datePublished: "2025-09-18",
-//     chosenColor: "green",
-//     chosenSize: "m",
-//   },
-//   {
-//     id: 5,
-//     name: "Under Armour Velocity Jacket",
-//     shortDescription: "High-performance jacket designed for motion.",
-//     description:
-//       "Under Armour’s Velocity Jacket keeps you protected from wind and rain while maintaining maximum flexibility.",
-//     price: { original: 99.9, current: 89.9 },
-//     sizes: ["m", "l", "xl", "xxl"],
-//     colors: ["blue", "orange", "red"],
-//     images: {
-//       blue: "/products/5bl.png",
-//       orange: "/products/5o.png",
-//       red: "/products/5r.png",
-//     },
-//     category: "jackets",
-//     rating: 4.9,
-//     inStock: true,
-//     datePublished: "2025-10-01",
-//     chosenColor: "red",
-//     chosenSize: "l",
-//   },
-//   {
-//     id: 8,
-//     name: "New Balance Thermal Hoodie",
-//     shortDescription: "Thermal hoodie built for cold-weather workouts.",
-//     description:
-//       "New Balance Thermal Hoodie locks in warmth while allowing freedom of movement — your perfect training companion.",
-//     price: { original: 89.9, current: 79.9 },
-//     sizes: ["s", "m", "l", "xl"],
-//     colors: ["black", "gray"],
-//     images: {
-//       black: "/products/8b.png",
-//       gray: "/products/8gr.png",
-//     },
-//     category: "jackets",
-//     rating: 4.8,
-//     inStock: false,
-//     datePublished: "2025-10-10",
-//     chosenColor: "gray",
-//     chosenSize: "xl",
-//   },
-// ];
+import StripePaymentForm from "@/components/stripe/StripPaymentComponent";
 
 const Cart = () => {
   const steps = ["Shopping Cart", "Shipping Address", "Payment Method"];
   const selectedStep = useCartStore((state) => state.step);
   const setStep = useCartStore((state) => state.setStep);
   const name = useCartStore((state) => state.name);
+  const email = useCartStore((state) => state.email);
+  const phone = useCartStore((state) => state.phone);
+  const address = useCartStore((state) => state.address);
+  const city = useCartStore((state) => state.city);
   const handleNavigation = (step: number) => {
     if (step === 2 && !name) {
       toast.error("please fill shipping information first");
@@ -129,7 +70,10 @@ const Cart = () => {
         ) : selectedStep === 1 ? (
           <ShippingInfo />
         ) : (
-          <PaymentInfo />
+          // <PaymentInfo />
+          <StripePaymentForm
+            shippingForm={{ name, email, phone, address, city }}
+          />
         )}
         <CartDetails />
       </div>
